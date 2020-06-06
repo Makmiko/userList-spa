@@ -23,7 +23,6 @@ export default {
                     })
                 });
                 const users = await res.json();
-                console.log(users);
                 context.commit('updateUsers', users)
             } catch (e) {
                 throw new URIError("Failed to connect to database");
