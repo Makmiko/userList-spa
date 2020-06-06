@@ -1,0 +1,34 @@
+
+
+.authForm {
+  text-align: center;
+  width: 200px;
+  margin: 200px auto;
+}
+
+.authForm__title {
+  margin: 0;
+}
+
+.authForm__inp {
+  border: 2px solid #2c3e50;
+  border-radius: 15px;
+  padding: 5px;
+  margin: 0 0 10px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.authForm__button {
+  background: #2c3e50;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+}
+
+.authForm__inp_invalid {
+  border-color: #ff5e4e;
+}

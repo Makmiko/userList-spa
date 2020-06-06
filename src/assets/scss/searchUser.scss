@@ -1,0 +1,30 @@
+.searchUsers {
+  display: flex;
+  justify-content: center;
+  max-height: 100%;
+  box-sizing: border-box;
+  flex: 0 1 50%;
+  padding: 0.83em;
+}
+
+.searchUsers__searchInput {
+  display: block;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 5px solid #2c3e50;
+  width: 55%;
+  height: 100%;
+  margin-right: 5%;
+  transition: border-color 0.3s linear;
+  &:focus {
+    outline: none;
+    border-color: #94ac2e;
+  }
+}
+
+.searchUsers__label {
+  flex: 0 1 25%;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0.2em;
+}

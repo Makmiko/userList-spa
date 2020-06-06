@@ -1,32 +1,33 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <button v-if="isAuth" v-on:click="exit" class="exit">
+            <img class="exit__logo" src="./assets/svg/logout.svg" alt="exit">
+        </button>
+        <router-view/>
     </div>
-    <router-view/>
-  </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+    import {mapActions, mapGetters} from 'vuex';
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+    export default {
+        name: 'App',
+        computed: mapGetters(['isAuth', 'user']),
+        methods: {
+            ...mapActions(['fetchUsers', 'updateUser']),
+            exit() {
+                localStorage.setItem('user', '');
+                localStorage.setItem('isAuth', 'false');
+                this.updateUser('');
+                this.$router.push('/authentication');
+            }
+        },
+        async mounted() {
+            this.fetchUsers();
+        }
     }
-  }
-}
+</script>
+
+<style lang="scss">
+    @import "assets/app.scss";
 </style>
